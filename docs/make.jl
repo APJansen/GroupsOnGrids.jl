@@ -6,11 +6,11 @@ DocMeta.setdocmeta!(GroupsOnGrids, :DocTestSetup, :(using GroupsOnGrids); recurs
 makedocs(;
     modules=[GroupsOnGrids],
     authors="Aron <aronpjansen@gmail.com> and contributors",
-    repo="https://github.com/aron jansen/GroupsOnGrids.jl/blob/{commit}{path}#{line}",
+    repo="https://github.com/apjansen/GroupsOnGrids.jl/blob/{commit}{path}#{line}",
     sitename="GroupsOnGrids.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://aron jansen.github.io/GroupsOnGrids.jl",
+        canonical="https://apjansen.github.io/GroupsOnGrids.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -20,6 +20,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/aron jansen/GroupsOnGrids.jl",
+    repo="github.com/apjansen/GroupsOnGrids.jl",
     devbranch="main",
 )
