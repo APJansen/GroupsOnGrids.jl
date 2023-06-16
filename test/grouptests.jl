@@ -10,3 +10,14 @@ function test_inverses(group::Group)
     end
     true
 end
+
+function test_subgroup_closure(group::Group, subgroup_indices::Vector{Int})
+    for i in subgroup_indices
+        for j in subgroup_indices
+            if group.composition[i][j] ∉ subgroup_indices
+                return false
+            end
+        end
+    end
+    true
+end

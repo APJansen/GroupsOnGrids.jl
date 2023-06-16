@@ -1,13 +1,26 @@
 
-P1 = Group(name = "P1", order = 1, inverses = [1], composition = [[1]])
+P1 = Group(
+    name = "P1",
+    order = 1,
+    inverses = [1],
+    composition = [[1]],
+    subgroups = Dict("P1" => [1]),
+)
 
-P2 = Group(name = "P2", order = 2, inverses = [1, 2], composition = [[1, 2], [2, 1]])
+P2 = Group(
+    name = "P2",
+    order = 2,
+    inverses = [1, 2],
+    composition = [[1, 2], [2, 1]],
+    subgroups = Dict("P1" => [1], "P2" => [1, 2]),
+)
 
 P2MM = Group(
     name = "P2MM",
     order = 4,
     inverses = [1, 2, 3, 4],
     composition = [[1, 2, 3, 4], [2, 1, 4, 3], [3, 4, 1, 2], [4, 3, 2, 1]],
+    subgroups = Dict("P1" => [1], "P2" => [1, 2], "P2MM" => [1, 2, 3, 4]),
 )
 
 P4 = Group(
@@ -15,6 +28,7 @@ P4 = Group(
     order = 4,
     inverses = [1, 4, 3, 2],
     composition = [[1, 2, 3, 4], [2, 3, 4, 1], [3, 4, 1, 2], [4, 1, 2, 3]],
+    subgroups = Dict("P1" => [1], "P2" => [1, 3], "P4" => [1, 2, 3, 4]),
 )
 
 P4M = Group(
@@ -31,6 +45,13 @@ P4M = Group(
         [7, 6, 5, 8, 3, 2, 1, 4],
         [8, 7, 6, 5, 4, 2, 2, 1],
     ],
+    subgroups = Dict(
+        "P1" => [1],
+        "P2" => [1, 3],
+        "P2MM" => [1, 5, 7, 3],
+        "P4" => [1, 2, 3, 4],
+        "P4M" => [1, 2, 3, 4, 5, 6, 7, 8],
+    ),
 )
 
 WallpaperGroups = Dict("P1" => P1, "P2" => P2, "P2MM" => P2MM, "P4" => P4, "P4M" => P4M)
