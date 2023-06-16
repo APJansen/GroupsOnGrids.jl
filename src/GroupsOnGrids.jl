@@ -1,5 +1,7 @@
 module GroupsOnGrids
 
-# Write your package code here.
+include("api.jl")
+
+include("group.jl")
 
 end
