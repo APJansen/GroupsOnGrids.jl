@@ -1,0 +1,13 @@
+name = "GroupsOnGrids"
+uuid = "0918877a-785b-4996-b659-c1cf7342890e"
+authors = ["Aron <aronpjansen@gmail.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
