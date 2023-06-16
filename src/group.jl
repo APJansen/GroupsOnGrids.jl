@@ -4,16 +4,16 @@ Type for a group.
 """
 struct Group
     name::String
-    order::Int16
-    composition::Vector{Vector{Int16}}
-    inverses::Vector{Int16}
+    order::Int
+    composition::Vector{Vector{Int}}
+    inverses::Vector{Int}
 end
 
-function Group(
+function Group(;
     name::String,
-    order::Int16,
-    composition::Vector{Vector{Int16}},
-    inverses::Vector{Int16},
+    order::Int,
+    composition::Vector{Vector{Int}},
+    inverses::Vector{Int},
 )
     Group(name, order, composition, inverses)
 end
