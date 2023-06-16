@@ -33,4 +33,4 @@ P4M = Group(
     ],
 )
 
-WallpaperGroups = [P1, P2, P2MM, P4, P4M]
+WallpaperGroups = Dict("P1" => P1, "P2" => P2, "P2MM" => P2MM, "P4" => P4, "P4M" => P4M)

@@ -8,7 +8,7 @@ include("grouptests.jl")
     groups = GroupsOnGrids.WallpaperGroups
 
     @testset "Testing group inverses" begin
-        for group in groups
+        for group in values(groups)
             @testset "Testing inverses for group $(group.name)" begin
                 @test test_inverses(group)
             end
