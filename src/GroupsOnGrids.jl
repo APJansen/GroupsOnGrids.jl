@@ -8,4 +8,6 @@ include("wallpaper_groups.jl")
 
 include("signals.jl")
 
+include("action.jl")
+
 end
