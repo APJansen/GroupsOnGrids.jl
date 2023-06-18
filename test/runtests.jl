@@ -2,6 +2,7 @@ using GroupsOnGrids
 using Test
 
 include("grouptests.jl")
+include("axestests.jl")
 
 
 @testset "GroupsOnGrids.jl" begin
@@ -26,6 +27,10 @@ include("grouptests.jl")
                 end
             end
         end
+    end
+
+    @testset "Testing axes manipulations" begin
+        test_lift()
     end
 
 end
