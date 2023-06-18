@@ -13,6 +13,5 @@ function test_action_composition(action::GroupAction, x::AbstractArray, axes::Ax
     h_g_on_x = reshape(h_g_on_x, size(g_x)..., group.order)
 
     # Check if the two are equal
-    print(h_on_g_x .=== h_g_on_x)
     @test all(h_on_g_x .=== h_g_on_x)
 end
