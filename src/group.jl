@@ -1,21 +1,11 @@
-
 """
-Type for a group.
-"""
-struct Group
-    name::String
-    order::Int
-    composition::Vector{Vector{Int}}
-    inverses::Vector{Int}
-    subgroups::Dict{String,Vector{Int}}
-end
+Abstract type for a group.
 
-function Group(;
-    name::String,
-    order::Int,
-    composition::Vector{Vector{Int}},
-    inverses::Vector{Int},
-    subgroups::Dict{String,Vector{Int}},
-)
-    Group(name, order, composition, inverses, subgroups)
-end
+# Fields
+- `name::String`: The name of the group.
+- `order::Int`: The order of the group.
+- `composition::Vector{Vector{Int}}`: The composition table of the group.
+- `inverses::Vector{Int}`: The inverse table of the group.
+- `subgroups::Dict{String,Vector{Int}}`: The subgroups of the group.
+"""
+abstract type Group end
