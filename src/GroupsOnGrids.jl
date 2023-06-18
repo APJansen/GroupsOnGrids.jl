@@ -4,7 +4,7 @@ include("api.jl")
 
 include("group.jl")
 
-include("wallpaper_groups.jl")
+include("point_groups.jl")
 
 include("signals.jl")
 

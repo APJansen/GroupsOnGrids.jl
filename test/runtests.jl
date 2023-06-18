@@ -6,7 +6,7 @@ include("axestests.jl")
 include("actiontests.jl")
 
 @testset "GroupsOnGrids.jl" begin
-    groups = GroupsOnGrids.WallpaperGroups
+    groups = GroupsOnGrids.PointGroups
 
     @testset "Testing group inverses" begin
         for group in values(groups)

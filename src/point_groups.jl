@@ -1,4 +1,4 @@
-struct P1 <: Group
+struct C1 <: Group
     name::String
     order::Int
     inverses::Vector{Int}
@@ -6,12 +6,12 @@ struct P1 <: Group
     subgroups::Dict{String,Vector{Int}}
 end
 
-function P1()
-    P1("P1", 1, [1], hcat(1), Dict("P1" => [1]))
+function C1()
+    C1("C1", 1, [1], hcat(1), Dict("C1" => [1]))
 end
 
 
-struct P2 <: Group
+struct C2 <: Group
     name::String
     order::Int
     inverses::Vector{Int}
@@ -19,20 +19,20 @@ struct P2 <: Group
     subgroups::Dict{String,Vector{Int}}
 end
 
-function P2()
-    P2(
-        "P2",
+function C2()
+    C2(
+        "C2",
         2,
         [1, 2],
         [
             1 2
             2 1
         ],
-        Dict("P1" => [1], "P2" => [1, 2]),
+        Dict("C1" => [1], "C2" => [1, 2]),
     )
 end
 
-struct P2MM <: Group
+struct D2 <: Group
     name::String
     order::Int
     inverses::Vector{Int}
@@ -40,9 +40,9 @@ struct P2MM <: Group
     subgroups::Dict{String,Vector{Int}}
 end
 
-function P2MM()
-    P2MM(
-        "P2MM",
+function D2()
+    D2(
+        "D2",
         4,
         [1, 2, 3, 4],
         [
@@ -51,11 +51,11 @@ function P2MM()
             3 4 1 2
             4 3 2 1
         ],
-        Dict("P1" => [1], "P2" => [1, 2], "P2MM" => [1, 2, 3, 4]),
+        Dict("C1" => [1], "C2" => [1, 2], "D2" => [1, 2, 3, 4]),
     )
 end
 
-struct P4 <: Group
+struct C4 <: Group
     name::String
     order::Int
     inverses::Vector{Int}
@@ -63,9 +63,9 @@ struct P4 <: Group
     subgroups::Dict{String,Vector{Int}}
 end
 
-function P4()
-    P4(
-        "P4",
+function C4()
+    C4(
+        "C4",
         4,
         [1, 4, 3, 2],
         [
@@ -74,11 +74,11 @@ function P4()
             3 4 1 2
             4 1 2 3
         ],
-        Dict("P1" => [1], "P2" => [1, 3], "P4" => [1, 2, 3, 4]),
+        Dict("C1" => [1], "C2" => [1, 3], "C4" => [1, 2, 3, 4]),
     )
 end
 
-struct P4M <: Group
+struct D4 <: Group
     name::String
     order::Int
     inverses::Vector{Int}
@@ -86,9 +86,9 @@ struct P4M <: Group
     subgroups::Dict{String,Vector{Int}}
 end
 
-function P4M()
-    P4M(
-        "P4M",
+function D4()
+    D4(
+        "D4",
         8,
         [1, 4, 3, 2, 5, 6, 7, 8],
         [
@@ -102,14 +102,14 @@ function P4M()
             8 7 6 5 4 3 2 1
         ],
         Dict(
-            "P1" => [1],
-            "P2" => [1, 3],
-            "P2MM" => [1, 5, 7, 3],
-            "P4" => [1, 2, 3, 4],
-            "P4M" => [1, 2, 3, 4, 5, 6, 7, 8],
+            "C1" => [1],
+            "C2" => [1, 3],
+            "D2" => [1, 5, 7, 3],
+            "C4" => [1, 2, 3, 4],
+            "D4" => [1, 2, 3, 4, 5, 6, 7, 8],
         ),
     )
 end
 
-WallpaperGroups =
-    Dict("P1" => P1(), "P2" => P2(), "P2MM" => P2MM(), "P4" => P4(), "P4M" => P4M())
+PointGroups =
+    Dict("C1" => C1(), "C2" => C2(), "D2" => D2(), "C4" => C4(), "D4" => D4())

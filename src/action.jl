@@ -37,7 +37,7 @@ struct P1_action <: GroupAction
 end
 
 function P1_action(new_group_axis::Int)
-    P1_action(P1(), new_group_axis)
+    P1_action(C1(), new_group_axis)
 end
 
 function act_on_grid(ga::P1_action, x::AbstractArray, axes::AxesInfo)
@@ -53,7 +53,7 @@ struct P2_action <: GroupAction
 end
 
 function P2_action(new_group_axis::Int)
-    P2_action(P2(), new_group_axis)
+    P2_action(C2(), new_group_axis)
 end
 
 function act_on_grid(ga::P2_action, x::AbstractArray, axes::AxesInfo)
@@ -71,7 +71,7 @@ struct P2MM_action <: GroupAction
 end
 
 function P2MM_action(new_group_axis::Int)
-    P2MM_action(P2MM(), new_group_axis)
+    P2MM_action(D2(), new_group_axis)
 end
 
 function act_on_grid(ga::P2MM_action, x::AbstractArray, axes::AxesInfo)
@@ -90,7 +90,7 @@ struct P4_action <: GroupAction
 end
 
 function P4_action(new_group_axis::Int)
-    P4_action(P4(), new_group_axis)
+    P4_action(C4(), new_group_axis)
 end
 
 function swap_axes(x::AbstractArray, axis1, axis2)
@@ -125,7 +125,7 @@ struct P4M_action <: GroupAction
 end
 
 function P4M_action(new_group_axis::Int)
-    P4M_action(P4M(), new_group_axis)
+    P4M_action(D4(), new_group_axis)
 end
 
 function act_on_grid(ga::P4M_action, x::AbstractArray, axes::AxesInfo)
