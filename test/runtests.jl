@@ -39,7 +39,7 @@ include("actiontests.jl")
         x = rand(1, 5, 5, 2)
         axes = AxesInfo(2, 3, nothing, nothing)
         for action in GroupsOnGrids.WallpaperActions
-            action = action(5)
+            action = action(1)
             @testset "... for group action $(action)" begin
                 test_action_composition(action, x, axes)
             end
