@@ -10,11 +10,12 @@ end
 
 const P1 = SpaceGroup{:P1}("P1", C1)
 const P2 = SpaceGroup{:P2}("P2", C2)
+const PM = SpaceGroup{:PM}("PM", D1)
 const P2MM = SpaceGroup{:P2MM}("P2MM", D2)
 const P4 = SpaceGroup{:P4}("P4", C4)
 const P4M = SpaceGroup{:P4M}("P4M", D4)
 
-SpaceGroups = [P1, P2, P2MM, P4, P4M]
+SpaceGroups = [P1, P2, PM, P2MM, P4, P4M]
 
 
 function (g::SpaceGroup)(x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
@@ -45,6 +46,11 @@ end
 function act_on_grid(g::SpaceGroup{:P2}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x_rotated = reverse(x, dims = (axes.width, axes.height))
     x = cat(x, x_rotated, dims = new_group_axis)
+    x
+end
+
+function act_on_grid(g::SpaceGroup{:PM}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+    x = cat(x, reverse(x, dims = axes.width), dims = new_group_axis)
     x
 end
 
