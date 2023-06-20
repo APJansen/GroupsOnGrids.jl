@@ -37,30 +37,30 @@ Apply a space group to a grid.
 # Returns
 The grid after the group action has been applied.
 """
-function act_on_grid(g::SpaceGroup, x::AbstractArray, axes::AxesInfo, new_group_axis::Int) end
+function act_on_grid(::SpaceGroup, x::AbstractArray, axes::AxesInfo, new_group_axis::Int) end
 
-function act_on_grid(g::SpaceGroup{:P1}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:P1}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x
 end
 
-function act_on_grid(g::SpaceGroup{:P2}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:P2}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x_rotated = reverse(x, dims = (axes.width, axes.height))
     x = cat(x, x_rotated, dims = new_group_axis)
     x
 end
 
-function act_on_grid(g::SpaceGroup{:PM}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:PM}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x = cat(x, reverse(x, dims = axes.width), dims = new_group_axis)
     x
 end
 
-function act_on_grid(g::SpaceGroup{:P2MM}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:P2MM}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x = cat(x, reverse(x, dims = axes.height), dims = new_group_axis)
     x = cat(x, reverse(x, dims = axes.width), dims = new_group_axis)
     x
 end
 
-function act_on_grid(g::SpaceGroup{:P4}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:P4}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x = cat(x, reverse(x, dims = (axes.width, axes.height)), dims = new_group_axis)
     x = cat(
         x,
@@ -74,7 +74,7 @@ function act_on_grid(g::SpaceGroup{:P4}, x::AbstractArray, axes::AxesInfo, new_g
     x
 end
 
-function act_on_grid(g::SpaceGroup{:P4M}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
+function act_on_grid(::SpaceGroup{:P4M}, x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
     x = cat(x, reverse(x, dims = axes.width), dims = new_group_axis)
     x = cat(x, reverse(x, dims = axes.height), dims = new_group_axis)
     x = cat(x, swap_axes(x, axes.width, axes.height), dims = new_group_axis)
