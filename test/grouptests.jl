@@ -1,5 +1,5 @@
 
-function test_inverses(group::Group)
+function test_inverses(group::PointGroup)
     for i = 1:group.order
         if group.composition[i, group.inverses[i]] != 1
             return false
@@ -11,7 +11,7 @@ function test_inverses(group::Group)
     true
 end
 
-function test_subgroup_closure(group::Group, subgroup_indices::Vector{Int})
+function test_subgroup_closure(group::PointGroup, subgroup_indices::Vector{Int})
     for i in subgroup_indices
         for j in subgroup_indices
             if group.composition[i, j] ∉ subgroup_indices

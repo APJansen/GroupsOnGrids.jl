@@ -32,7 +32,7 @@ end
 # P1
 #########
 struct P1_action <: GroupAction
-    group::Group
+    group::PointGroup
     new_group_axis::Int
 end
 
@@ -48,7 +48,7 @@ end
 # P2
 #########
 struct P2_action <: GroupAction
-    group::Group
+    group::PointGroup
     new_group_axis::Int
 end
 
@@ -66,7 +66,7 @@ end
 # P2MM
 #########
 struct P2MM_action <: GroupAction
-    group::Group
+    group::PointGroup
     new_group_axis::Int
 end
 
@@ -85,7 +85,7 @@ end
 # P4
 #########
 struct P4_action <: GroupAction
-    group::Group
+    group::PointGroup
     new_group_axis::Int
 end
 
@@ -120,7 +120,7 @@ end
 # P4M
 #########
 struct P4M_action <: GroupAction
-    group::Group
+    group::PointGroup
     new_group_axis::Int
 end
 

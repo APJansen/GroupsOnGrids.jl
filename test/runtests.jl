@@ -8,21 +8,23 @@ include("actiontests.jl")
 @testset "GroupsOnGrids.jl" begin
     groups = GroupsOnGrids.PointGroups
 
-    @testset "Testing group inverses" begin
-        for group in values(groups)
-            @testset "Testing inverses for group $(group.name)" begin
-                @test test_inverses(group)
+    @testset "Testing point groups..." begin
+        @testset "Testing inverses" begin
+            for group in values(groups)
+                @testset "Testing inverses for group $(group.name)" begin
+                    @test test_inverses(group)
+                end
             end
         end
-    end
 
-    @testset "Testing subgroup closure" begin
-        for group in values(groups)
-            @testset "Closure of group $(group.name)'s subgroups..." begin
-                for (subgroup_name, subgroup_indices) in group.subgroups
-                    subgroup = groups[subgroup_name]
-                    @testset "... subgroup $(subgroup.name)" begin
-                        @test test_subgroup_closure(group, subgroup_indices)
+        @testset "Testing subgroup closure" begin
+            for group in values(groups)
+                @testset "Closure of group $(group.name)'s subgroups..." begin
+                    for (subgroup_name, subgroup_indices) in group.subgroups
+                        subgroup = groups[subgroup_name]
+                        @testset "... subgroup $(subgroup.name)" begin
+                            @test test_subgroup_closure(group, subgroup_indices)
+                        end
                     end
                 end
             end
