@@ -4,14 +4,15 @@ The space groups.
 Each space group is defined by a point group and a way of using it to act on a grid.
 """
 struct SpaceGroup{I}
+    name::String
     point_group::PointGroup
 end
 
-const P1 = SpaceGroup{:P1}(C1)
-const P2 = SpaceGroup{:P2}(C2)
-const P2MM = SpaceGroup{:P2MM}(D2)
-const P4 = SpaceGroup{:P4}(C4)
-const P4M = SpaceGroup{:P4M}(D4)
+const P1 = SpaceGroup{:P1}("P1", C1)
+const P2 = SpaceGroup{:P2}("P2", C2)
+const P2MM = SpaceGroup{:P2MM}("P2MM", D2)
+const P4 = SpaceGroup{:P4}("P4", C4)
+const P4M = SpaceGroup{:P4M}("P4M", D4)
 
 SpaceGroups = [P1, P2, P2MM, P4, P4M]
 
