@@ -93,13 +93,6 @@ function P4_action(new_group_axis::Int)
     P4_action(C4, new_group_axis)
 end
 
-function swap_axes(x::AbstractArray, axis1, axis2)
-    axes = collect(1:ndims(x))
-    axes[axis1], axes[axis2] = axes[axis2], axes[axis1]
-    x = permutedims(x, axes)
-    x
-end
-
 function act_on_grid(ga::P4_action, x::AbstractArray, axes::AxesInfo)
     x = cat(x, reverse(x, dims = (axes.width, axes.height)), dims = ga.new_group_axis)
     x = cat(

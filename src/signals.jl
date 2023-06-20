@@ -45,3 +45,13 @@ function lift(x::AbstractArray, axes::AxesInfo, new_group_axis::Int)
 
     return x, axes
 end
+
+"""
+Swap two given axes, keeping the other axes in their relative order.
+"""
+function swap_axes(x::AbstractArray, axis1, axis2)
+    axes = collect(1:ndims(x))
+    axes[axis1], axes[axis2] = axes[axis2], axes[axis1]
+    x = permutedims(x, axes)
+    x
+end
