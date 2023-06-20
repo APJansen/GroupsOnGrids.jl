@@ -1,3 +1,3 @@
-export PointGroup, GroupAction
+export PointGroup, SpaceGroup
 export AxesInfo
 export lift

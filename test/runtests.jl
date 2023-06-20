@@ -38,10 +38,9 @@ include("actiontests.jl")
     @testset "Testing whether action respects composition..." begin
         x = rand(1, 5, 5, 2)
         axes = AxesInfo(2, 3, nothing, nothing)
-        for action in GroupsOnGrids.WallpaperActions
-            action = action(1)
-            @testset "... for group action $(action)" begin
-                test_action_composition(action, x, axes)
+        for space_group in GroupsOnGrids.SpaceGroups
+            @testset "... for group $(space_group)" begin
+                test_action_composition(space_group, x, axes)
             end
         end
     end
