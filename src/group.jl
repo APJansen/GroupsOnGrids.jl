@@ -8,4 +8,10 @@ Abstract type for a group.
 - `inverses::Vector{Int}`: The inverse table of the group.
 - `subgroups::Dict{String,Vector{Int}}`: The subgroups of the group.
 """
-abstract type Group end
+struct Group{I}
+    name::String
+    order::Int
+    inverses::Vector{Int}
+    composition::Matrix{Int}
+    subgroups::Dict{String,Vector{Int}}
+end
